@@ -6,6 +6,8 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 @Slf4j
 public class Service<E,ID> implements BaseService<E,ID> {
 
@@ -40,5 +42,10 @@ public class Service<E,ID> implements BaseService<E,ID> {
             log.error("error in deleting entity");
             return Boolean.FALSE;
         }
+    }
+
+    @Override
+    public List<E> all() {
+        return baseRepository.findAll();
     }
 }

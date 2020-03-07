@@ -1,6 +1,7 @@
 package com.nishant.controller;
 
 import com.nishant.entity.Category;
+import com.nishant.entity.Product;
 import com.nishant.model.request.ApiRequest;
 import com.nishant.model.response.ApiResponse;
 import com.nishant.service.CategoryService;
@@ -8,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @AllArgsConstructor
@@ -39,5 +42,10 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     public @ResponseBody ApiResponse<Boolean> delete(@PathVariable("id") final Long id){
         return new ApiResponse<>(categoryService.delete(id));
+    }
+
+    @GetMapping
+    public @ResponseBody ApiResponse<List<Category>> all(){
+        return new ApiResponse<>(categoryService.all());
     }
 }

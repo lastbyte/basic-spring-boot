@@ -13,6 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @AllArgsConstructor
 @RequestMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -50,5 +52,10 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public @ResponseBody ApiResponse<Boolean> delete(@PathVariable("id") final Long id){
         return new ApiResponse<>(productService.delete(id));
+    }
+
+    @GetMapping
+    public @ResponseBody ApiResponse<List<Product>> all(){
+        return new ApiResponse<>(productService.all());
     }
 }
