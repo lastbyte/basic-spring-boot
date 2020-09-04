@@ -1,11 +1,7 @@
 package com.nishant.service;
 
-import com.nishant.entity.Base;
-import com.nishant.exception.ResourceNotFoundException;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 
 @Slf4j
